@@ -1,11 +1,12 @@
-package main
+package schema
 
 import (
 	"fmt"
-	"github.com/valterlobo/imaginary.json/schema"
+	"testing"
 )
 
-func main() {
+func TestValidator(t *testing.T) {
+
 
 	//schema.JsonSchemaValidator2{}
 	schemaRaw := `{
@@ -40,7 +41,7 @@ func main() {
 
 	fmt.Println("TESTE")
 	fmt.Println("----------------------------------------")
-	jsonValidator := schema.JsonSchemaValidatorQri{}
+	jsonValidator := JsonSchemaValidatorQri{}
 	valido, erros := jsonValidator.Validator(schemaRaw, jsonRow)
 
 	if valido {
@@ -53,7 +54,6 @@ func main() {
 	}
 
 	fmt.Println("----------------------------------------")
-
 
 	var invalid = `{
     "firstName" : "Prince"  ,
@@ -92,6 +92,5 @@ func main() {
 	fmt.Println("----------------------------------------")
 	fmt.Println("/FIM TESTE")
 
-
-
 }
+
