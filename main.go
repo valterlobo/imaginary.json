@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"imaginary.json/schema"
+	"github.com/valterlobo/imaginary.json/schema"
 )
 
 func main() {
