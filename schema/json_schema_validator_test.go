@@ -49,7 +49,7 @@ func TestValidator(t *testing.T) {
 	} else {
 		for _, v := range erros {
 
-			println(" " + v.Error())
+			println(" " + v)
 		}
 	}
 
@@ -66,7 +66,7 @@ func TestValidator(t *testing.T) {
 	} else {
 		for _, v := range erros2 {
 
-			println(" " + v.Error())
+			println(" " + v)
 		}
 	}
 	fmt.Println("----------------------------------------")
@@ -86,7 +86,7 @@ func TestValidator(t *testing.T) {
 	} else {
 		for _, v := range erros3 {
 
-			println(" " + v.Error())
+			println(" " + v)
 		}
 	}
 	fmt.Println("----------------------------------------")
