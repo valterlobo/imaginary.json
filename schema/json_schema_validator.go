@@ -24,9 +24,9 @@ func (jsonValidator JsonSchemaValidatorQri) Validator(schemaRaw string, jsonRaw 
 		return false, listErrors
 	}
 
-	var valid = []byte(jsonRaw)
+	var jsonBytes = []byte(jsonRaw)
 	ctx := context.TODO()
-	errs, err := rs.ValidateBytes(ctx, valid)
+	errs, err := rs.ValidateBytes(ctx, jsonBytes)
 	if err != nil {
 		listErrors = append(listErrors, err)
 		return false, listErrors
