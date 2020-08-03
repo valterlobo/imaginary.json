@@ -1,4 +1,4 @@
-module imaginary.json
+module  github.com/valterlobo/imaginary.json
 
 go 1.14
 
