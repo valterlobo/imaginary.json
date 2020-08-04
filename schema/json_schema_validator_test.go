@@ -42,7 +42,7 @@ func TestValidator(t *testing.T) {
 	fmt.Println("TESTE")
 	fmt.Println("----------------------------------------")
 	jsonValidator := JsonSchemaValidatorQri{}
-	valido, erros := jsonValidator.Validator(schemaRaw, jsonRow)
+	valido, erros := jsonValidator.ValidatorStr(schemaRaw, jsonRow)
 
 	if valido {
 		println(" VALIDO ")
@@ -59,7 +59,7 @@ func TestValidator(t *testing.T) {
     "firstName" : "Prince"  ,
     }`
 
-	valido2, erros2 := jsonValidator.Validator(schemaRaw, invalid)
+	valido2, erros2 := jsonValidator.ValidatorStr(schemaRaw, invalid)
 
 	if valido2 {
 		println(" VALIDO ")
@@ -79,7 +79,7 @@ func TestValidator(t *testing.T) {
       }]
     }`
 
-	valido3, erros3 := jsonValidator.Validator(schemaRaw, invalidFriend)
+	valido3, erros3 := jsonValidator.ValidatorStr(schemaRaw, invalidFriend)
 
 	if valido3 {
 		println(" VALIDO ")

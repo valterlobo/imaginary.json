@@ -13,18 +13,24 @@ type JsonSchemaValidator interface {
 type JsonSchemaValidatorQri struct {
 }
 
-func (jsonValidator JsonSchemaValidatorQri) Validator(schemaRaw string, jsonRaw string) (bool, []string) {
+func (jsonValidator JsonSchemaValidatorQri) ValidatorStr(schemaRaw string, jsonRaw string) (bool, []string) {
 
 	schemaRawBytes := []byte(schemaRaw)
+	var jsonBytes = []byte(jsonRaw)
+	return jsonValidator.ValidatorBytes (schemaRawBytes , jsonBytes)
+}
+
+
+func (jsonValidator JsonSchemaValidatorQri) ValidatorBytes(schemaBytes []byte, jsonBytes  []byte) (bool, []string) {
+
 	var listErrors = make([]string, 0)
 	rs := &jsonschema.Schema{}
 
-	if err := json.Unmarshal(schemaRawBytes, rs); err != nil {
+	if err := json.Unmarshal(schemaBytes, rs); err != nil {
 		listErrors = append(listErrors, err.Error())
 		return false, listErrors
 	}
 
-	var jsonBytes = []byte(jsonRaw)
 	ctx := context.TODO()
 	errs, err := rs.ValidateBytes(ctx, jsonBytes)
 	if err != nil {
